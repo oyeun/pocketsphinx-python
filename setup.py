@@ -232,14 +232,14 @@ if sys.platform.startswith('win'):
         )
     )
 elif sys.platform.startswith('darwin'):
-    sb_include_dirs.append('/System/Library/Frameworks/OpenAL.framework/Versions/A/Headers')
+    sb_include_dirs.append('/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/OpenAL.framework/Headers')
     ext_modules.append(
         Extension(
             name='sphinxbase._ad_openal',
             sources=['swig/sphinxbase/ad_openal.i', 'deps/sphinxbase/src/libsphinxad/ad_openal.c'],
             swig_opts=sb_swig_opts,
             include_dirs=sb_include_dirs,
-            extra_objects=['/System/Library/Frameworks/OpenAL.framework/Versions/A/OpenAL'],
+            extra_objects=['/System/Library/Frameworks/OpenAL.framework/OpenAL'],
             define_macros=define_macros,
             extra_compile_args=extra_compile_args,
             extra_link_args=extra_link_args
@@ -270,17 +270,17 @@ elif sys.platform.startswith('linux'):
     ])
 
 setup(
-    name='pocketsphinx',
-    version='0.1.15',
-    description='Python interface to CMU Sphinxbase and Pocketsphinx libraries',
+    name='PyPocketsphinx',
+    version='0.1.16',
+    description='Python interface to CMU Sphinxbase and Pocketsphinx libraries. Forked from pocketsphinx 0.1.15.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Dmitry Prazdnichnov',
     author_email='dmitry@prazdnichnov.name',
     maintainer='Dmitry Prazdnichnov',
     maintainer_email='dmitry@prazdnichnov.name',
-    url='https://github.com/bambocher/pocketsphinx-python',
-    download_url='https://pypi.org/project/pocketsphinx/#files',
+    url='https://github.com/oyeun/pocketsphinx-python',
+    download_url='https://pypi.org/project/PyPocketsphinx/#files',
     packages=['sphinxbase', 'pocketsphinx'],
     ext_modules=ext_modules,
     cmdclass=cmdclass,
