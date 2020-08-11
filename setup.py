@@ -270,17 +270,17 @@ elif sys.platform.startswith('linux'):
     ])
 
 setup(
-    name='pocketsphinx',
-    version='0.1.15',
-    description='Python interface to CMU Sphinxbase and Pocketsphinx libraries',
+    name='PyPocketsphinx',
+    version='0.1.16',
+    description='Python interface to CMU Sphinxbase and Pocketsphinx libraries. Forked from pocketsphinx 0.1.15.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Dmitry Prazdnichnov',
     author_email='dmitry@prazdnichnov.name',
     maintainer='Dmitry Prazdnichnov',
     maintainer_email='dmitry@prazdnichnov.name',
-    url='https://github.com/bambocher/pocketsphinx-python',
-    download_url='https://pypi.org/project/pocketsphinx/#files',
+    url='https://github.com/oyeun/pocketsphinx-python',
+    download_url='https://pypi.org/project/PyPocketsphinx/#files',
     packages=['sphinxbase', 'pocketsphinx'],
     ext_modules=ext_modules,
     cmdclass=cmdclass,
