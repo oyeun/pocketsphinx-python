@@ -273,7 +273,7 @@ elif sys.platform.startswith('linux'):
 
 setup(
     name='PyPocketsphinx',
-    version='0.1.16',
+    version='0.1.17',
     description='Python interface to CMU Sphinxbase and Pocketsphinx libraries. Forked from pocketsphinx 0.1.15.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -282,7 +282,7 @@ setup(
     maintainer='Dmitry Prazdnichnov',
     maintainer_email='dmitry@prazdnichnov.name',
     url='https://github.com/oyeun/pocketsphinx-python',
-    download_url='https://github.com/oyeun/pocketsphinx-python/archive/v0.1.16.tar.gz',
+    download_url='https://github.com/oyeun/pocketsphinx-python/archive/v0.1.17.tar.gz',
     packages=['sphinxbase', 'pocketsphinx'],
     ext_modules=ext_modules,
     cmdclass=cmdclass,
