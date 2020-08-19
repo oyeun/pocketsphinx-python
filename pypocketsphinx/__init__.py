@@ -33,7 +33,7 @@ import sys
 import signal
 from contextlib import contextmanager
 from sphinxbase import *
-from .pocketsphinx import *
+from pocketsphinx import *
 
 
 DefaultConfig = Decoder.default_config
@@ -87,7 +87,7 @@ class Pocketsphinx(Decoder):
             elif isinstance(value, str):
                 config.set_string('-{}'.format(key), value)
 
-        super(Pocketsphinx, self).__init__(config)
+        super(PyPocketsphinx, self).__init__(config)
 
     def __str__(self):
         return self.hypothesis()
@@ -151,7 +151,7 @@ class Pocketsphinx(Decoder):
             return self.get_logmath().exp(hyp.prob)
 
 
-class AudioFile(Pocketsphinx):
+class AudioFile(PyPocketsphinx):
 
     def __init__(self, **kwargs):
         signal.signal(signal.SIGINT, self.stop)
@@ -188,7 +188,7 @@ class AudioFile(Pocketsphinx):
         raise StopIteration
 
 
-class LiveSpeech(Pocketsphinx):
+class LiveSpeech(PyPocketsphinx):
 
     def __init__(self, **kwargs):
         signal.signal(signal.SIGINT, self.stop)

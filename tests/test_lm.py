@@ -29,7 +29,7 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 from unittest import TestCase
-from pocketsphinx import Pocketsphinx, NGramModel
+from pypocketsphinx import Pocketsphinx, NGramModel
 
 
 class TestLm(TestCase):

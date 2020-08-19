@@ -147,14 +147,16 @@ ps_swig_opts = (
     ['-outdir', 'pocketsphinx']
 )
 
-if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pocketsphinx/model')):
+if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pypocketsphinx/model')):
     copytree(os.path.join(os.path.dirname(__file__), 'deps/pocketsphinx/model/en-us'),
-             os.path.join(os.path.dirname(__file__), 'pocketsphinx/model'),
+             os.path.join(os.path.dirname(__file__), 'pypocketsphinx/model'),
              ignore=ignore_patterns('en-us-phone.lm.bin'))
-if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pocketsphinx/data')):
-    os.makedirs(os.path.join(os.path.dirname(__file__), 'pocketsphinx/data'))
+if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pypocketsphinx/data')):
+    os.makedirs(os.path.join(os.path.dirname(__file__), 'pypocketsphinx/data'))
     copy(os.path.join(os.path.dirname(__file__), 'deps/pocketsphinx/test/data/goforward.raw'),
-         os.path.join(os.path.dirname(__file__), 'pocketsphinx/data/goforward.raw'))
+         os.path.join(os.path.dirname(__file__), 'pypocketsphinx/data/goforward.raw'))
+if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pocketsphinx')):
+    os.mkdir(os.path.join(os.path.dirname(__file__), 'pocketsphinx'))
 
 
 class build(_build):
@@ -280,7 +282,7 @@ setup(
     maintainer='Dmitry Prazdnichnov',
     maintainer_email='dmitry@prazdnichnov.name',
     url='https://github.com/oyeun/pocketsphinx-python',
-    download_url='https://pypi.org/project/PyPocketsphinx/#files',
+    download_url='https://github.com/oyeun/pocketsphinx-python/archive/v0.1.16.tar.gz',
     packages=['sphinxbase', 'pocketsphinx'],
     ext_modules=ext_modules,
     cmdclass=cmdclass,

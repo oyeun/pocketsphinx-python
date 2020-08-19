@@ -1,31 +1,16 @@
-# Pocketsphinx Python
+# PyPocketsphinx
 
-[![Latest Version](https://img.shields.io/pypi/v/pocketsphinx.svg?maxAge=86400)](https://pypi.org/project/pocketsphinx)
-[![Development Status](https://img.shields.io/pypi/status/pocketsphinx.svg?maxAge=86400)](https://pypi.org/project/pocketsphinx)
-[![Supported Python Versions](https://img.shields.io/pypi/pyversions/pocketsphinx.svg?maxAge=86400)](https://pypi.org/project/pocketsphinx)
-[![Travis Build Status](https://travis-ci.org/bambocher/pocketsphinx-python.svg?branch=master)](https://travis-ci.org/bambocher/pocketsphinx-python)
-[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/v2rvnt181dox00jr/branch/master?svg=true)](https://ci.appveyor.com/project/bambocher/pocketsphinx-python/branch/master)
-[![License](https://img.shields.io/pypi/l/pocketsphinx.svg?maxAge=86400)](https://pypi.org/project/pocketsphinx)
+PyPocketsphinx is a fork of [Pocketsphinx Python](https://github.com/bambocher/pocketsphinx-python) with the following changes:
 
-Pocketsphinx is a part of the [CMU Sphinx](http://cmusphinx.sourceforge.net) Open Source Toolkit For Speech Recognition.
-
-This package provides a python interface to CMU [Sphinxbase](https://github.com/cmusphinx/sphinxbase) and [Pocketsphinx](https://github.com/cmusphinx/pocketsphinx) libraries created with [SWIG](http://www.swig.org) and [Setuptools](https://setuptools.readthedocs.io).
-
-## Supported platforms
-
-* Windows
-* Linux
-* Mac OS X
+* Fixes OSX installation described in [issue #28](https://github.com/bambocher/pocketsphinx-python/issues/28) using [pull request #44](https://github.com/bambocher/pocketsphinx-python/pull/44)
 
 ## Installation
 
 ```shell
 # Make sure we have up-to-date versions of pip, setuptools and wheel
 python -m pip install --upgrade pip setuptools wheel
-pip install --upgrade pocketsphinx
+pip install --upgrade pypocketsphinx
 ```
-
-More binary distributions for manual installation are available [here](https://pypi.org/project/pocketsphinx/#files).
 
 ## Usage
 
@@ -34,14 +19,14 @@ More binary distributions for manual installation are available [here](https://p
 It's an iterator class for continuous recognition or keyword search from a microphone.
 
 ```python
-from pocketsphinx import LiveSpeech
+from pypocketsphinx import LiveSpeech
 for phrase in LiveSpeech(): print(phrase)
 ```
 
 An example of a keyword search:
 
 ```python
-from pocketsphinx import LiveSpeech
+from pypocketsphinx import LiveSpeech
 
 speech = LiveSpeech(lm=False, keyphrase='forward', kws_threshold=1e-20)
 for phrase in speech:
@@ -52,7 +37,7 @@ With your model and dictionary:
 
 ```python
 import os
-from pocketsphinx import LiveSpeech, get_model_path
+from pypocketsphinx import LiveSpeech, get_model_path
 
 model_path = get_model_path()
 
@@ -76,14 +61,14 @@ for phrase in speech:
 It's an iterator class for continuous recognition or keyword search from a file.
 
 ```python
-from pocketsphinx import AudioFile
+from pypocketsphinx import AudioFile
 for phrase in AudioFile(): print(phrase) # => "go forward ten meters"
 ```
 
 An example of a keyword search:
 
 ```python
-from pocketsphinx import AudioFile
+from pypocketsphinx import AudioFile
 
 audio = AudioFile(lm=False, keyphrase='forward', kws_threshold=1e-20)
 for phrase in audio:
@@ -94,7 +79,7 @@ With your model and dictionary:
 
 ```python
 import os
-from pocketsphinx import AudioFile, get_model_path, get_data_path
+from pypocketsphinx import AudioFile, get_model_path, get_data_path
 
 model_path = get_model_path()
 data_path = get_data_path()
@@ -118,7 +103,7 @@ for phrase in audio:
 Convert frame into time coordinates:
 
 ```python
-from pocketsphinx import AudioFile
+from pypocketsphinx import AudioFile
 
 # Frames per Second
 fps = 100
@@ -149,7 +134,7 @@ for phrase in AudioFile(frate=fps):  # frate (default=100)
 It's a simple and flexible proxy class to `pocketsphinx.Decode`.
 
 ```python
-from pocketsphinx import Pocketsphinx
+from pypocketsphinx import Pocketsphinx
 print(Pocketsphinx().decode()) # => "go forward ten meters"
 ```
 
@@ -158,7 +143,7 @@ A more comprehensive example:
 ```python
 from __future__ import print_function
 import os
-from pocketsphinx import Pocketsphinx, get_model_path, get_data_path
+from pypocketsphinx import Pocketsphinx, get_model_path, get_data_path
 
 model_path = get_model_path()
 data_path = get_data_path()
@@ -240,7 +225,7 @@ dict = False
 Send output to stdout:
 
 ```python
-from pocketsphinx import Pocketsphinx
+from pypocketsphinx import Pocketsphinx
 
 ps = Pocketsphinx(verbose=True)
 ps.decode()
@@ -251,9 +236,9 @@ print(ps.hypothesis())
 Send output to file:
 
 ```python
-from pocketsphinx import Pocketsphinx
+from pypocketsphinx import Pocketsphinx
 
-ps = Pocketsphinx(verbose=True, logfn='pocketsphinx.log')
+ps = Pocketsphinx(verbose=True, logfn='pypocketsphinx.log')
 ps.decode()
 
 print(ps.hypothesis())
@@ -265,7 +250,7 @@ Parent classes are still available:
 
 ```python
 import os
-from pocketsphinx import DefaultConfig, Decoder, get_model_path, get_data_path
+from pypocketsphinx import DefaultConfig, Decoder, get_model_path, get_data_path
 
 model_path = get_model_path()
 data_path = get_data_path()
@@ -287,8 +272,6 @@ with open(os.path.join(data_path, 'goforward.raw'), 'rb') as f:
 print('Best hypothesis segments:', [seg.word for seg in decoder.seg()])
 ```
 
-## Install development version
-
 ### Install requirements
 
 Windows requirements:
@@ -309,24 +292,6 @@ Mac OS X requirements:
 ```shell
 brew reinstall swig python
 ```
-
-### Install with pip
-
-```shell
-pip install https://github.com/bambocher/pocketsphinx-python/archive/master.zip
-```
-
-### Install with distutils
-
-```shell
-git clone --recursive https://github.com/bambocher/pocketsphinx-python
-cd pocketsphinx-python
-python setup.py install
-```
-
-## Projects using pocketsphinx-python
-
-* [SpeechRecognition](https://github.com/Uberi/speech_recognition) - Library for performing speech recognition, with support for several engines and APIs, online and offline.
 
 ## License
 

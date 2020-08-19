@@ -18,5 +18,5 @@ sphinxbase/ad_alsa.py
 sphinxbase/sphinxbase.py
 pocketsphinx/pocketsphinx.py
 *_wrap.c
-pocketsphinx/data/
-pocketsphinx/model/
+pypocketsphinx/data/
+pypocketsphinx/model/
