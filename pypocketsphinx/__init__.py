@@ -87,7 +87,7 @@ class Pocketsphinx(Decoder):
             elif isinstance(value, str):
                 config.set_string('-{}'.format(key), value)
 
-        super(PyPocketsphinx, self).__init__(config)
+        super(Pocketsphinx, self).__init__(config)
 
     def __str__(self):
         return self.hypothesis()
@@ -151,7 +151,7 @@ class Pocketsphinx(Decoder):
             return self.get_logmath().exp(hyp.prob)
 
 
-class AudioFile(PyPocketsphinx):
+class AudioFile(Pocketsphinx):
 
     def __init__(self, **kwargs):
         signal.signal(signal.SIGINT, self.stop)
@@ -188,7 +188,7 @@ class AudioFile(PyPocketsphinx):
         raise StopIteration
 
 
-class LiveSpeech(PyPocketsphinx):
+class LiveSpeech(Pocketsphinx):
 
     def __init__(self, **kwargs):
         signal.signal(signal.SIGINT, self.stop)
