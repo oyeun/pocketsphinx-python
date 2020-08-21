@@ -5,6 +5,6 @@ recursive-include deps/sphinxbase/src/libsphinxbase *.c *.h
 recursive-include deps/pocketsphinx/include *.h
 recursive-include deps/pocketsphinx/src/libpocketsphinx *.c *.h
 global-include *.i
-graft pocketsphinx/model
-graft pocketsphinx/data
+graft pypocketsphinx/model
+graft pypocketsphinx/data
 include README.md LICENSE

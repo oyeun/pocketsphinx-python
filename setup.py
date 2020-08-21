@@ -155,8 +155,6 @@ if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pypocketsphinx/da
     os.makedirs(os.path.join(os.path.dirname(__file__), 'pypocketsphinx/data'))
     copy(os.path.join(os.path.dirname(__file__), 'deps/pocketsphinx/test/data/goforward.raw'),
          os.path.join(os.path.dirname(__file__), 'pypocketsphinx/data/goforward.raw'))
-if not os.path.exists(os.path.join(os.path.dirname(__file__), 'pocketsphinx')):
-    os.mkdir(os.path.join(os.path.dirname(__file__), 'pocketsphinx'))
 
 
 class build(_build):
@@ -273,7 +271,7 @@ elif sys.platform.startswith('linux'):
 
 setup(
     name='PyPocketsphinx',
-    version='0.1.17',
+    version='0.1.18',
     description='Python interface to CMU Sphinxbase and Pocketsphinx libraries. Forked from pocketsphinx 0.1.15.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
@@ -282,7 +280,7 @@ setup(
     maintainer='Dmitry Prazdnichnov',
     maintainer_email='dmitry@prazdnichnov.name',
     url='https://github.com/oyeun/pocketsphinx-python',
-    download_url='https://github.com/oyeun/pocketsphinx-python/archive/v0.1.17.tar.gz',
+    download_url='https://github.com/oyeun/pocketsphinx-python/archive/v0.1.18.tar.gz',
     packages=['sphinxbase', 'pocketsphinx'],
     ext_modules=ext_modules,
     cmdclass=cmdclass,

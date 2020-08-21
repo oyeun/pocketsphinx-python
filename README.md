@@ -2,7 +2,7 @@
 
 PyPocketsphinx is a fork of [Pocketsphinx Python](https://github.com/bambocher/pocketsphinx-python) with the following changes:
 
-* Fixes OSX installation described in [issue #28](https://github.com/bambocher/pocketsphinx-python/issues/28) using [pull request #44](https://github.com/bambocher/pocketsphinx-python/pull/44)
+* Fixes OSX installation issue described in [issue #28](https://github.com/bambocher/pocketsphinx-python/issues/28) using fix from [pull request #44](https://github.com/bambocher/pocketsphinx-python/pull/44)
 
 ## Installation
 
